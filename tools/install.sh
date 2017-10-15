@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt -v >/dev/null 2>&1 || { echo >&2 "Cozy requires apt but it's not installed. Aborting."; exit 64; }
+
 if [[ -d $HOME/.cozy || ${#COZY_HOME} -gt 0 ]]; then
     echo "It looks like cozy is already installed at $COZY_HOME"
     exit 64
